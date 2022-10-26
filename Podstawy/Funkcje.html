@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Funkcje</title>
+    </head>
+    <body>
+        <script>
+            /*
+                Zadanie 1
+                Napisz funkcję, która przyjmie liczbę i wyświetli
+                informację czy jest ona parzysta czy nieparzysta.
+                
+                Zadanie 2
+                Napisz funkcję, która przyjmie dwie wartości
+                i wyświetli:
+                * informację czy wartości są równe czy nie
+                * informację czy wartości są identyczne czy nie
+                 
+                Zadanie 3
+                Napisz funkcję, która przymie liczbę 
+                i wyswietli nazwę dnia tygodnia.
+                
+                Zadanie 4*
+                Napisz funkcję, która pobierze liczbę
+                i wyświetli ją w systemie binarnym.
+            */
+
+            function ShowInfo()
+            {
+                document.write("Hello World!!!!");
+                document.write("</br>");
+            }
+            
+            ShowInfo();
+
+            function Suma(liczbaPierwsza, liczbaDruga)
+            {
+                var wynik;
+                wynik=liczbaPierwsza+liczbaDruga;
+                return wynik;
+            }
+
+            var wynikFunkcji = Suma(-20,2157);
+            document.write(wynikFunkcji);
+            document.write("</br>")
+
+            function ex1(number)
+            {
+                document.write(number,"</br>")
+                if(number%2==0)
+                document.write("parzysta</br>")
+                else
+                document.write("nieparzysta</br>")
+            }
+
+            function ex2(number1, number2)
+            {
+                if(number1==number2)
+                document.write("Są tej samej wartości</br>")
+                else
+                document.write("Nie są tej samej wartości</br>")
+                if(number1===number2)
+                document.write("Są identyczne</br>")
+                else
+                document.write("Nie są identyczne</br>")
+
+            }
+            
+            function ex3(number)
+            {
+                switch(number)
+                {
+                case 0:
+                case 7:
+                    document.write("Niedziela</br>")
+                    break;
+                case 1:
+                    document.write("Poniedzialek")
+                    break;
+                case 2:
+                    document.write("Wtorek")
+                    break;
+                case 3:
+                    document.write("Środa")
+                    break;
+                case 4:
+                    document.write("Czwartek")
+                    break;
+                case 5:
+                    document.write("Piątek")
+                    break;
+                case 6:
+                    document.write("Sobota")
+                    break;
+                }
+            }
+      
+            function ex4(num)
+            {
+               var tmp = parseInt(num%2)
+                if(num>0)
+                ex4(parseInt(num/2))
+                document.write(tmp)
+            }
+
+            ex1(2);
+            ex2(2,3);
+            ex3(7);
+            ex4(26);
+
+
+        </script>
+    </body>
+</html>
+
+ty jeabny betoniarzu

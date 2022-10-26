@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>tablice</title>
+    </head>
+    <body>
+        <script>
+            let tablicaLiczb = []
+            tablicaLiczb[0] = 5;
+            tablicaLiczb[1]= 7;
+            tablicaLiczb[2] = 1;
+            tablicaLiczb[3] = -1157;
+            tablicaLiczb[7] = 45;
+            
+            for(let i =0 ; i < tablicaLiczb.length; i++)
+            document.write(tablicaLiczb[i]+ "</br>")
+        
+        function SzukajMax(paramTab)
+        {
+            let aktMax = paramTab[0];
+            for(let i = 0; i< tablicaLiczb.length;i++)
+            if(aktMax < paramTab[i])
+            aktMax = paramTab[i];
+            document.write("Największa wartość" + aktMax)
+
+        }
+        SzukajMax(tablicaLiczb);
+        document.write("</br>")
+
+        function WyswietlParametry(p1,p2)
+        {
+            document.write(p1+"</br>");
+            document.write(p2 + "</br>")
+        }
+        WyswietlParametry(15,"Ala")
+
+
+        
+        </script>
+    </body>
+</html>

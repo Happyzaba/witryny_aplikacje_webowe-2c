@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Obiekty</title>
+    </head>
+    <body>
+        <script>
+            //Obiekt typu String
+            let tekst ="Ala ma kota"
+            let tekst2 = new String("Ala ma kota")
+
+            document.write("Zmienna tekst ma długosc" + tekst.length + "</br>")
+            document.write(tekst.substring(7,11) +"</br>")
+            document.write(tekst.toUpperCase()+"</br>")
+            document.write(tekst.toLowerCase()+"</br>")
+
+            //Obiekt typu Array
+            let tab1=[];
+            let tab2 = new Array();
+
+            tab1[0]=5;
+            tab1[1]=2;1
+            tab1[2]=4;
+
+            for(let i = 0; i < tab1.length; i++)
+            document.write(tab1[i]+",")
+            document.write("</br>")
+
+            document.write(tab1.join() + "</br>")
+            //Obiekt typu Date
+            let data = new Date();
+
+            document.write(data.toString()+"</br>")
+            document.write(data.getFullYear()+"</br>")
+            document.write(data.getMonth()+"</br>")
+            document.write(data.getDay()+"</br>")
+            document.write(data.getDate()+"</br>")
+        </script>
+    </body>
+</html>

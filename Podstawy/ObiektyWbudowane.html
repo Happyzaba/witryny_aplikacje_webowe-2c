@@ -6,6 +6,7 @@
     </head>
     <body>
         <script>
+            /*
             //Obiekt typu String
             let tekst ="Ala ma kota"
             let tekst2 = new String("Ala ma kota")
@@ -28,14 +29,137 @@
             document.write("</br>")
 
             document.write(tab1.join() + "</br>")
-            //Obiekt typu Date
+            //obiekt typu Date
             let data = new Date();
+            
+            document.write(data.toString() + "<br/>");
+            document.write("Rok: " + data.getFullYear() + "<br/>");
+            document.write("Miesiąc: " + data.getMonth() + "<br/>");
+            document.write("Dzień tygodnia: " + data.getDay() + "<br/>"); //dzień tygodnia
+            document.write("Dzień miesiąca: " + data.getDate() + "<br/>");
+            document.write("Godzina: " + data.getHours() + "<br/>");
+            document.write("Minuta: " + data.getMinutes() + "<br/>");
+            document.write("Sekunda " + data.getSeconds() + "<br/>");
+            document.write("Milisekunda: " + data.getMilliseconds() + "<br/>");*/
+            
+            function showDay(dayNum)
+            {
+                dayNum = dayNum % 7;
+                {
+                switch(dayNum)
+                {
+                case 0:
+                case 7:
+                    document.write("Niedziela</br>")
+                    break;
+                case 1:
+                    document.write("Poniedzialek")
+                    break;
+                case 2:
+                    document.write("Wtorek")
+                    break;
+                case 3:
+                    document.write("Środa")
+                    break;
+                case 4:
+                    document.write("Czwartek")
+                    break;
+                case 5:
+                    document.write("Piątek")
+                    break;
+                case 6:
+                    document.write("Sobota")
+                    break;
+                }
+            }
+        }
+            function showMonth(monthNum)
+              {
 
-            document.write(data.toString()+"</br>")
-            document.write(data.getFullYear()+"</br>")
-            document.write(data.getMonth()+"</br>")
-            document.write(data.getDay()+"</br>")
-            document.write(data.getDate()+"</br>")
+                   {
+                  switch(monthNum)
+                  {
+                  case 0:
+                     document.write("Styczeń")
+                        break;
+                  case 1:
+                    document.write("Luty")
+                    break;
+                case 2:
+                    document.write("Marzec")
+                    break;
+                case 3:
+                    document.write("Kwiecień")
+                    break;
+                case 4:
+                    document.write("Maj")
+                    break;
+                case 5:
+                    document.write("Czerwiec")
+                    break;
+                case 6:
+                    document.write("Lipiec")
+                    break;
+                case 7:
+                    document.write("Sierpień")
+                    break;
+                case 8:
+                    document.write("Wrzesień")
+                    break;
+                case 9:
+                    document.write("Październik")
+                    break;
+                case 10:
+                    document.write("Listopad")
+                    break;
+                case 11:
+                    document.write("Grudzień")
+                    break;
+                }
+            }
+        }
+        
+        function check0(num)
+            {
+                if (num < 10)
+                document.write("0")
+            }
+            function date()
+            {
+                let data = new Date();
+                showDay(data.getDay());
+                document.write(','+ " ")
+                check0(data.getDate())
+                document.write(data.getDate()+" ")
+                showMonth(data.getMonth())
+                document.write(" "+"roku:" + data.getFullYear()+"</br>")
+            }
+            function hour()
+            {
+                let data = new Date();
+                document.write("Godzina:")
+                check0(data.getHours());
+                document.write(data.getHours()+":")
+                check0(data.getMinutes())
+                document.write(data.getMinutes()+":")
+                check0(data.getSeconds())
+                document.write(data.getSeconds())
+            }   
+        
+            function zadanie_data()
+            {
+                document.write("Dzisiaj jest:" +"</br>");
+                date();
+                hour();
+            }
+            zadanie_data();
+
+            /*
+                Napisz funckje która wyświetli tekst:,,Dzisiaj jest Sroda, 02, październik 2022 roku , 
+                Godzina""
+            
+            */
+
         </script>
     </body>
 </html>

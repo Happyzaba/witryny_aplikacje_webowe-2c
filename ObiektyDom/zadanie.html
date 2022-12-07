@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Przykładowy program</title>
+    </head>
+    <body>
+        <p>Podaj imię:</p>
+        <input type="text" id="nameId"/>
+        <p>Podaj wiek</p>
+        <input type="text" id="ageId"/>
+        <p>Podaj wzrost</p>
+        <input type="text" id="heightId"/>
+        <br/>
+        <input type="button" value="Wyświetl informację" onclick="getInfo()"/>
+        <br/>
+        <div id="helloId">Tutaj po naciśnięciu przycisku ma pojawić się:
+            * jesli walidacja przejdzie poprawnie:
+                "Witaj 'imie' na stronie" - gdzie 'imie' jest to wartość z pola wprowadzanego
+            * jeśli walidacja nie przejdzie poprawnie:
+                to powinien znaleść się odpowiedni komunikat informujący co jest nie tak
+        </div>
+        <div id="legalAgeId">
+            Tutaj po naciśnięciu przycisku ma pojawić się:
+            * jesli walidacja przejdzie poprawnie:
+                "Jesteś pełnoletni/niepełnoletni" - w zależności od wieku
+            * jeśli walidacja nie przejdzie poprawnie: 
+                nic
+        </div>
+
+        <br/>
+        <div>Zasady:<br/>
+            * Poprawne formatowanie kodu<br/>
+            * Czytelność identyfikatorów<br/>
+            * DRY - don't repeat yourself<br/>
+            * KISS - Keep it simple stupid<br/>
+            * YAGNI - You aren't gonna need it<br/>
+            * SOLID - S - Single responsibility principle <br/>
+        </div>
+
+        <script>
+
+            function getInfo()
+            {
+                let validateReturn = Validate();
+                if (validateReturn.pass)
+                {
+                    showInfo();
+                }
+                else
+                {
+                    showError(validateReturn);
+                }
+            }
+
+            function showInfo()
+            {
+                let helloObject = document.getElementById("helloId");
+                let legalAgeObject = document.getElementById("legalAgeId");
+                let nameObject = document.getElementById("nameId");
+                let ageObject = document.getElementById("ageId");
+                let heightObject = document.getElementById("heightId");
+
+                helloObject.innerHTML = "Witaj " + nameObject.value + " na stronie."
+
+                legalAgeObject.innerHTML=convertAgeToMajority(ageObject.value);
+
+                heightObject.innerHTML =  heightObject.value;
+            }
+
+            function convertAgeToMajority(text)
+            {
+                let age = parseInt(text);
+                return age > 17 ? "Jesteś pełnoletni":"Jesteś niepełnoletni";
+            }
+
+            function showError(validateReturn)
+            {
+                let helloObject = document.getElementById("helloId");
+                let legalAgeObject = document.getElementById("legalAgeId");
+                helloObject.innerHTML = validateReturn.message;
+                legalAgeObject.innerHTML="";
+            }
+
+            function CheckReturn(message, pass)
+            {
+                this.message=message;
+                this.pass=pass;
+            }
+
+            function Validate()
+            {
+                let validateReturn = ValidateName("nameId");
+                if (!validateReturn.pass)
+                    return validateReturn;
+                    validateReturn = ValidateAge("ageId");
+                if (!validateReturn.pass)
+                    return validateReturn;
+                    validateReturn = ValidateHeight("heightId");
+                
+                return validateReturn;
+            }
+
+            function ValidateName(id)
+            {
+                let nameObject = document.getElementById(id);
+                let validateReturn = ValidateIsEmpty(nameObject.value);
+                if (!validateReturn.pass)
+                {
+                    validateReturn.message = "Imię: " + validateReturn.message;
+                    return validateReturn;
+                }
+                return validateReturn;
+            }
+            function ValidateHeight(id)
+            {
+                let heightObject = document.getElementById(id);
+                let validateReturn = ValidateIsEmpty(heightObject.value);
+                if (!validateReturn.pass)
+                {
+                    validateReturn.message = "Wzrost: " + validateReturn.message;
+                    return validateReturn;
+                }
+                return validateReturn;
+            }
+
+            function ValidateIsEmpty(text)
+            {
+                let validateReturn = new CheckReturn("", true);
+                if (text == undefined || text == "")
+                {
+                    validateReturn.message="Niczego nie podałeś";
+                    validateReturn.pass=false;
+                    return validateReturn;
+                }
+                return validateReturn;
+            }
+
+            function ValidateIsNumber(text)
+            {
+                let validateReturn = new CheckReturn("", true);
+                if (isNaN(parseInt(text)))
+                {
+                    validateReturn.message="Nie jest liczbą";
+                    validateReturn.pass=false;
+                    return validateReturn
+                }
+                return validateReturn;
+            }
+
+            function ValidateRange(text, min,max)
+            {
+                let validateReturn = new CheckReturn("", true);
+                let number = parseInt(text);
+                if (number < min || number > max)
+                {
+                    validateReturn.message="Spoza zakresu <" + min + " ; " + max + ">";
+                    validateReturn.pass=false;
+                    return validateReturn;
+                }
+                return validateReturn;
+            }
+
+            function ValidateAge(id)
+            {
+                let ageObject = document.getElementById(id);
+                let validateReturn = ValidateIsEmpty(ageObject.value);
+                if (!validateReturn.pass)
+                {
+                    validateReturn.message = "Wiek: " + validateReturn.message;
+                    return validateReturn;
+                }
+                validateReturn = ValidateIsNumber(ageObject.value);
+                if (!validateReturn.pass)
+                {
+                    validateReturn.message = "Wiek: " + validateReturn.message;
+                    return validateReturn;
+                }
+
+                validateReturn = ValidateRange(ageObject.value, 1, 130);
+                if (!validateReturn.pass)
+                {
+                    validateReturn.message = "Wiek: " + validateReturn.message;
+                    return validateReturn;
+                }
+                return validateReturn;
+            }
+
+            
+        </script>
+    </body>
+</html>

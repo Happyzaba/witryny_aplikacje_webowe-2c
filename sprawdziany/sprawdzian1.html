@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            function ex1(){
+                document.write("Nazywam się Wiktor Fidler");
+            }
+            ex1()
+            document.write("</br>")
+            function ex2(number1){
+                if(number1 %2 == 0)
+                {
+                    document.write("jest parzysta")
+                }
+                else
+                document.write("nie jest parzysta")
+            }
+            ex2(2)
+            document.write("</br>")
+            function ex3(number1, number2)
+            {
+                if(number1>number2)
+                {
+                    document.write(number1 +" "+ "jest wieksza")
+                }
+                else if(number1<number2)
+                {
+                    document.write(number2+" "+"jest wieksza")
+                }
+                else
+                document.write("sa rowne")
+            }
+            ex3(4,5)
+            document.write("</br>")
+            function ex4()
+            {
+                for(let i=1; i<=100; i++)
+                {
+                    document.write(i+",")
+                }
+                document.write("</br>")
+            }
+            ex4();
+            document.write("</br>")
+            function ex5()
+            {
+            let godzina = new Date()
+            let h=godzina.getHours()
+            let min=godzina.getMinutes()
+            let sec=godzina.getSeconds()
+           if(h<10)
+           {
+            document.write("0" + h)
+           }
+           else
+           {
+           document.write(h)
+           }
+           document.write(":")
+           if(min<10)
+           {
+            document.write("0" + min)
+           }
+           else
+           {
+            document.write(min)
+           }
+           document.write(":")
+           if(sec < 10)
+           {
+            document.write("0" + sec)
+           }
+           else
+           {
+            document.write(sec)
+           }
+        }
+        ex5();
+        </script>
+    </body>
+</html>

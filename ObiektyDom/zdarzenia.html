@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html onmousemove="increase()">
+    <head>
+        <title>Zdarzenia</title>
+    </head>
+    <body>
+        <div id="counter"></div>
+
+        <input type="button" value="Kliknij mnie" onclick="alert('Witaj')"/>
+        <br/>
+        <input type="button" value="Kliknij mnie" onclick="alert('Witojcie')"/>
+        <br/>
+        <p>Nowy Tekst</p>
+        <br/>
+            <input type="text" id="newText" value="jakis tam tekst"/><br/>
+        <input type="button" value="Podmień tekst" onclick="changeText()"/><br/>
+        
+        
+        <div id="divToChange"><p>fhysghujagsw</p></div>
+
+        <img src="zd1.jpg" width="320" height="200" 
+        onmouseenter="this.src = 'zd2.jpg', width='320', height='200'"
+        onmouseleave="this.src='zd1.jpg', width='320', height ='200'" />
+        <script>
+        //alert("Witaj na stronie")
+
+        let counter = 0;
+            function increase()
+            {
+                
+                document.getElementById("counter").innerText = counter++;
+            }
+
+        function changeText()
+        {
+            let objectWithNewText = document.getElementById("newText");
+            
+            let objectToChange = document.getElementById("divToChange");
+            objectToChange.innerHTML="Ola ma szopa";
+            //objectToChange.innerHTML="Ola ma szopa";
+            objectToChange.innerText=objectWithNewText.value;
+        }
+        
+        </script>
+    </body>
+</html>

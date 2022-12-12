@@ -6,13 +6,13 @@
     <body>
         <p>Podaj imię:</p>
         <input type="text" id="nameId"/>
-        <p>Podaj wiek</p>
+        <p>Podaj wiek:</p>
         <input type="text" id="ageId"/>
-        <p>Podaj wzrost</p>
+        <p>Podaj wzrost:</p>
         <input type="text" id="heightId"/>
-        <br/>
+        <br/><br/>
         <input type="button" value="Wyświetl informację" onclick="getInfo()"/>
-        <br/>
+        <br/><br/>
         <div id="helloId">Tutaj po naciśnięciu przycisku ma pojawić się:
             * jesli walidacja przejdzie poprawnie:
                 "Witaj 'imie' na stronie" - gdzie 'imie' jest to wartość z pola wprowadzanego
@@ -26,166 +26,122 @@
             * jeśli walidacja nie przejdzie poprawnie: 
                 nic
         </div>
-
+        <div id="heightNumberId"></div>
         <br/>
         <div>Zasady:<br/>
-            * Poprawne formatowanie kodu<br/>
-            * Czytelność identyfikatorów<br/>
-            * DRY - don't repeat yourself<br/>
-            * KISS - Keep it simple stupid<br/>
-            * YAGNI - You aren't gonna need it<br/>
-            * SOLID - S - Single responsibility principle <br/>
+        * Poprawne formatowanie kodu<br/>
+        * Czytelność identyfikatorów<br/>
+        * DRY - don't repeat yourself<br/>
+        * KISS - Keep it simple stupid<br/>
+        * YAGNI - You aren't gonna need it<br/>
+        * SOLID - S - Single responsibility principle <br/>
         </div>
-
         <script>
 
             function getInfo()
             {
-                let validateReturn = Validate();
-                if (validateReturn.pass)
+                
+                if (Validate())
                 {
                     showInfo();
                 }
                 else
                 {
-                    showError(validateReturn);
+                    showError(); 
                 }
             }
 
             function showInfo()
-            {
-                let helloObject = document.getElementById("helloId");
-                let legalAgeObject = document.getElementById("legalAgeId");
-                let nameObject = document.getElementById("nameId");
-                let ageObject = document.getElementById("ageId");
-                let heightObject = document.getElementById("heightId");
+            { 
+                let nameBox = document.getElementById("nameId");
+                document.getElementById("helloId").innerHTML = "Witaj " + nameBox.value + " na stronie.";
 
-                helloObject.innerHTML = "Witaj " + nameObject.value + " na stronie."
+                let ageBox = document.getElementById("ageId");
+                document.getElementById("legalAgeId").innerHTML=convertAgeToMajority(ageBox.value);
 
-                legalAgeObject.innerHTML=convertAgeToMajority(ageObject.value);
-
-                heightObject.innerHTML =  heightObject.value;
+                let heightBox = document.getElementById("heightId");
+                document.getElementById("heightNumberId").innerHTML = "Wzrost: " + heightBox.value + "cm";
             }
 
             function convertAgeToMajority(text)
             {
-                let age = parseInt(text);
-                return age > 17 ? "Jesteś pełnoletni":"Jesteś niepełnoletni";
+                return parseInt(text) > 17 ? "Jesteś pełnoletni":"Jesteś niepełnoletni";
             }
 
-            function showError(validateReturn)
+            function showError()
             {
-                let helloObject = document.getElementById("helloId");
-                let legalAgeObject = document.getElementById("legalAgeId");
-                helloObject.innerHTML = validateReturn.message;
-                legalAgeObject.innerHTML="";
-            }
-
-            function CheckReturn(message, pass)
-            {
-                this.message=message;
-                this.pass=pass;
+                document.getElementById("helloId").innerHTML = returnBox;
+                document.getElementById("legalAgeId").innerHTML="";
+                document.getElementById("heightNumberId").innerHTML="";
             }
 
             function Validate()
             {
-                let validateReturn = ValidateName("nameId");
-                if (!validateReturn.pass)
-                    return validateReturn;
-                    validateReturn = ValidateAge("ageId");
-                if (!validateReturn.pass)
-                    return validateReturn;
-                    validateReturn = ValidateHeight("heightId");
-                
-                return validateReturn;
+            return  (VName() && VAge() && VHeight());
             }
 
-            function ValidateName(id)
+            function VName()
             {
-                let nameObject = document.getElementById(id);
-                let validateReturn = ValidateIsEmpty(nameObject.value);
-                if (!validateReturn.pass)
+                if (VIsEmpty(document.getElementById("nameId").value))
                 {
-                    validateReturn.message = "Imię: " + validateReturn.message;
-                    return validateReturn;
+                    returnBox = "Imię: " + returnBox;
+                    return false;
                 }
-                return validateReturn;
+                return true;
             }
-            function ValidateHeight(id)
+            function VHeight()
             {
-                let heightObject = document.getElementById(id);
-                let validateReturn = ValidateIsEmpty(heightObject.value);
-                if (!validateReturn.pass)
+                if (VIsEmpty(document.getElementById("heightId").value)||
+                VIsNotNumber(document.getElementById("heightId").value)||
+                !VIsInRange(document.getElementById("heightId").value, 50, 250))
                 {
-                    validateReturn.message = "Wzrost: " + validateReturn.message;
-                    return validateReturn;
+                    returnBox = "Wzrost: " + returnBox;
+                    return false;
                 }
-                return validateReturn;
+                return true;
             }
 
-            function ValidateIsEmpty(text)
+            function VAge()
             {
-                let validateReturn = new CheckReturn("", true);
+                if (VIsEmpty(document.getElementById("ageId").value)||
+                VIsNotNumber(document.getElementById("ageId").value)||
+                !VIsInRange(document.getElementById("ageId").value, 1, 130))
+                {
+                    returnBox = "Wiek: " + returnBox;
+                    return false;
+                }
+                return true;
+            }
+            function VIsEmpty(text)
+            {
                 if (text == undefined || text == "")
                 {
-                    validateReturn.message="Niczego nie podałeś";
-                    validateReturn.pass=false;
-                    return validateReturn;
+                    returnBox = "Nic nie wpisano";
+                    return true;
                 }
-                return validateReturn;
+                return false;
             }
 
-            function ValidateIsNumber(text)
+            function VIsNotNumber(text)
             {
-                let validateReturn = new CheckReturn("", true);
                 if (isNaN(parseInt(text)))
                 {
-                    validateReturn.message="Nie jest liczbą";
-                    validateReturn.pass=false;
-                    return validateReturn
+                    returnBox="Nie jest liczbą";
+                    return true;
                 }
-                return validateReturn;
+                return false;
             }
 
-            function ValidateRange(text, min,max)
+            function VIsInRange(text, min,max)
             {
-                let validateReturn = new CheckReturn("", true);
-                let number = parseInt(text);
-                if (number < min || number > max)
+                if (parseInt(text) < min || parseInt(text) > max)
                 {
-                    validateReturn.message="Spoza zakresu <" + min + " ; " + max + ">";
-                    validateReturn.pass=false;
-                    return validateReturn;
+                    returnBox="Spoza zakresu <" + min + " ; " + max + ">";
+                    return false;
                 }
-                return validateReturn;
+                return true;
             }
-
-            function ValidateAge(id)
-            {
-                let ageObject = document.getElementById(id);
-                let validateReturn = ValidateIsEmpty(ageObject.value);
-                if (!validateReturn.pass)
-                {
-                    validateReturn.message = "Wiek: " + validateReturn.message;
-                    return validateReturn;
-                }
-                validateReturn = ValidateIsNumber(ageObject.value);
-                if (!validateReturn.pass)
-                {
-                    validateReturn.message = "Wiek: " + validateReturn.message;
-                    return validateReturn;
-                }
-
-                validateReturn = ValidateRange(ageObject.value, 1, 130);
-                if (!validateReturn.pass)
-                {
-                    validateReturn.message = "Wiek: " + validateReturn.message;
-                    return validateReturn;
-                }
-                return validateReturn;
-            }
-
-            
+   
         </script>
     </body>
 </html>

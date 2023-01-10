@@ -38,6 +38,15 @@
         </div>
         <script>
 
+          class Message
+          {
+            constructor(message)
+            {
+                this.message = message;
+            }
+          }
+          returnBox = new Message("");  
+
             function getInfo()
             {
                 
@@ -70,7 +79,7 @@
 
             function showError()
             {
-                document.getElementById("helloId").innerHTML = returnBox;
+                document.getElementById("helloId").innerHTML = returnBox.message;
                 document.getElementById("legalAgeId").innerHTML="";
                 document.getElementById("heightNumberId").innerHTML="";
             }
@@ -84,7 +93,7 @@
             {
                 if (VIsEmpty(document.getElementById("nameId").value))
                 {
-                    returnBox = "Imię: " + returnBox;
+                    returnBox.message = "Imię: " + returnBox.message;
                     return false;
                 }
                 return true;
@@ -95,7 +104,7 @@
                 VIsNotNumber(document.getElementById("heightId").value)||
                 !VIsInRange(document.getElementById("heightId").value, 50, 250))
                 {
-                    returnBox = "Wzrost: " + returnBox;
+                    returnBox.message = "Wzrost: " + returnBox.message;
                     return false;
                 }
                 return true;
@@ -107,7 +116,7 @@
                 VIsNotNumber(document.getElementById("ageId").value)||
                 !VIsInRange(document.getElementById("ageId").value, 1, 130))
                 {
-                    returnBox = "Wiek: " + returnBox;
+                    returnBox.message = "Wiek: " + returnBox.message;
                     return false;
                 }
                 return true;
@@ -116,7 +125,7 @@
             {
                 if (text == undefined || text == "")
                 {
-                    returnBox = "Nic nie wpisano";
+                    returnBox.message = "Nic nie wpisano";
                     return true;
                 }
                 return false;
@@ -126,7 +135,7 @@
             {
                 if (isNaN(parseInt(text)))
                 {
-                    returnBox="Nie jest liczbą";
+                    returnBox.message ="Nie jest liczbą";
                     return true;
                 }
                 return false;
@@ -136,7 +145,7 @@
             {
                 if (parseInt(text) < min || parseInt(text) > max)
                 {
-                    returnBox="Spoza zakresu <" + min + " ; " + max + ">";
+                    returnBox.message ="Spoza zakresu <" + min + " ; " + max + ">";
                     return false;
                 }
                 return true;

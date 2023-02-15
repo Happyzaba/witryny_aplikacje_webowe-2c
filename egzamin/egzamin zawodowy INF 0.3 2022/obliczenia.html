@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>stacja paliw</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Całodobowa stacja paliw</h1>
+            </header>
+        <menu>
+        <a href="stacja.html"><img src="home.png" id="Dom" ></a>
+        <a href="obliczenia.html"><img src="znak.png" id="Dystrybutor"></a>
+        <a href="kwerendy.txt">Pobierz dokument</a>
+        
+        </menu>
+        <div id="leftDiv">
+        <h2>Orientacyjny koszt paliwa</h2>    
+        Rodzaj paliw(1-benzyna, 2-olej napędowy):<br>
+        <input type="number" id="paliwo"><br>
+        Ile litrow
+        <br>
+        <input type="number" id="litry">
+        <br>
+        <button onclick="obliczenia()">Oblicz</button>
+        <div id="wyswietl"></div>
+        </div>
+        <div id="rightDiv">
+            <img src="samochod.png" alt="samochod" id="Samochod">
+        </div>
+        <footer>
+            <h1>Strone opracowal:Wiktor Fidler</h1>
+        </footer>    
+    
+    </div>
+    <script>
+        function obliczenia()
+        {
+            let paliwo = document.getElementById("paliwo").value; 
+            let litry = document.getElementById("litry").value;
+            let wyswietl = document.getElementById("wyswietl");
+            let wynik = 0;
+            
+            if(paliwo == 1){
+                wynik = litry * 4;
+            }
+            else if(paliwo == 2){
+                wynik = litry * 3.5;
+            }
+            else
+            {
+             wynik = 0;   
+            }
+            wyswietl.innerHTML = "koszt paliwa:" + wynik +"zł";
+        }
+    </script>
+    </body>
+</html>

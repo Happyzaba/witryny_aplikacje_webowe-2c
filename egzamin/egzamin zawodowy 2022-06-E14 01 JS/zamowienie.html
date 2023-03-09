@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styl10.css"> 
+        <meta charset="UTF-8">
+        <title>Fabryka cukierków</title>
+    </head>
+    <body>
+        <div id="lewyGorny">
+            <a href="zamowienie.html">Zamów cukierki</a>
+        </div>
+
+        <div id="prawyGorny">
+            <a href="index.html"><img src="Logotyp.png" alt="Nasze logo"></a>
+        </div>
+
+        <header id="baner">
+            <h1>Strefa zamówień</h1>
+        </header>
+
+        <div id="lewyGlowny">
+            Numer kształtu <br>
+            <input type="number" id="numer1"> <br>
+            skomponuj swój kolor, podaj RGB:<br>
+            R:<input id="numberr" type="number">
+            G:<input id="numberg" type="number">
+            B:<input id="numberb" type="number"><br>
+            <button onclick="oblicznie()">Zamowienie</button>
+            <p id="wynik1"></p>
+            <p>Twoje zamowienie</p>
+            <button id="kolor">Kolor</button>
+        </div>
+        
+        <div id="prawyGlowny">
+            <h2>Nasza oferta</h2>
+            <table>
+                <tr>
+                    <td>Kształty</td>
+                    <td rowspan="2">Możesz zamówić <br>
+                        dowolny kolor cukierka</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ol>
+                            <li>cytryna</li>
+                            <li>liść</li>
+                            <li>banan</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <footer id="stopka">
+            Autor strony: <b>00000000000</b>
+        </footer>
+        <script>
+            function oblicznie()
+            {
+                var a = document.getElementById("numer1").value;
+                switch (a) {
+                    case '1':
+                        document.getElementById("wynik1").innerHTML = "Twoje zamówienie to cukierek cytryna";
+                        break;
+                    case '2':
+                        document.getElementById("wynik1").innerHTML = "Twoje zamówienie to cukierek liść";
+                        break;
+                    case '3':
+                         document.getElementById("wynik1").innerHTML = "Twoje zamówienie to cukierek banan";    
+                        break;
+                    default:
+                        document.getElementById("wynik1").innerHTML = "Twoje zamówienie to inny";
+                        break;
+                }
+                var r = document.getElementById("numberr").value;
+                var rh = parseInt(r);
+                var g = document.getElementById("numberg").value;
+                var gh = parseInt(g);
+                var b = document.getElementById("numberb").value;
+                var bh = parseInt(b);
+                document.getElementById("kolor").style.backgroundColor = '#'+rh.toString(16)+gh.toString(16)+bh.toString(16);
+            }
+        </script>
+    </body>
+</html>

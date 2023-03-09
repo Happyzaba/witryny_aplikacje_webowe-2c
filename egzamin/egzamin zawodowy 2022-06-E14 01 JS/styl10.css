@@ -1,0 +1,60 @@
+body{
+    font-family: Helvetica;
+    clear: both;
+}
+#lewyGorny{
+background-color: rgb(146, 184, 112);
+text-align: center;
+width: 50%;
+height: 170px;
+float: left;
+}
+#prawyGorny{
+    background-color: rgb(146, 184, 112);
+    text-align: center;
+    width: 50%;
+    height: 170px;
+    display: inline-block;
+}
+#baner{
+background-color: rgb(100, 61, 49);
+color: white;
+text-align: center;
+height: 80px;
+padding: 5px;
+}  
+#stopka{
+    background-color: rgb(100, 61, 49);
+    color: white;
+    text-align: center;
+    height: 80px;
+    padding: 5px;
+}
+#lewyGlowny{
+background-color: rgb(146, 184, 112);
+width: 50%;
+height: 450px;
+display: inline-block;
+}
+#prawyGlowny{
+    background-color: rgb(146, 184, 112);
+    width: 50%;
+    height: 450px;
+    float: right;
+}
+#lewyGorny a{
+    background-image:url("cukierki1.png");
+    padding-right: 30px;
+    padding-bottom:120px;
+    font-size: 150%;
+    text-decoration: none;
+}
+table, td{
+    border: 2px green dashed;
+    margin: 30px;
+    padding: 20px;
+}
+h1{
+    letter-spacing: 20px;
+    font-size: 250%;
+}

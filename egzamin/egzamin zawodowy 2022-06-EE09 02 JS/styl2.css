@@ -1,0 +1,23 @@
+body{
+    
+}
+
+#kontener{
+    font-family: Helvetica;
+    background-color: linen;
+    color: #222;
+    margin: auto;
+    width: 90%;
+}
+#pierwszyBaner{
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 100px;
+}
+#drugiBaner{
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 100px;
+}

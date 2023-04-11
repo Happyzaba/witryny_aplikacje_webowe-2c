@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styl.css"> 
+        <meta charset="UTF-8">
+        <title>Kochamy kawę</title>
+    </head>
+    <body>
+        <div id="menu">
+            <a href="index.html">Strona główna</a>
+            <a href="zamowienia.html">Zamówienia</a>
+            <a href="blog.html">Blog</a>
+            <a href="http://gatunki-kawy.pl/">Gatunki Kawy</a>
+        </div>
+        <div id="logo">
+            <img src="logo.png" alt="Kawa" height="110px">
+        </div>
+        <header id="baner">
+            <h1>Sklep z kawą</h1>
+        </header>
+        <div id="lewy">
+            Podaj numer kawy:<input type="number" id="numer"><br>
+            Podaj wagę w dekagramach:<input type="number" id="waga"><br>
+            <button onclick="Oblicz()">Zamów</button>
+            <p id="wynik"></p>
+        </div>
+        <div id="prawy">
+            <h3>Oferta</h3>
+            <ul>
+               <li>Arabica</li>
+               <li>Robusta</li>
+               <li id="nr3">bezkofeinowa</li>
+               <li>zielona</li> 
+            </ul>
+        </div>
+        <footer>
+            Stronę przygotował:<b>00000000000</b>
+        </footer>
+        <script>
+            function Oblicz(){
+                var n = document.getElementById("numer").value;
+                var w = document.getElementById("waga").value;
+                switch (n) {
+                    case '1':
+                    document.getElementById("wynik").innerHTML="Koszt zamówienia wynosi: "+5*w+" zł";
+                        break;
+                    case '2':
+                    document.getElementById("wynik").innerHTML="Koszt zamówienia wynosi: "+7*w+" zł";
+                        break;
+                    case '4':
+                    document.getElementById("wynik").innerHTML="Koszt zamówienia wynosi: "+6*w+" zł";
+                        break;
+                    default:
+                        document.getElementById("wynik").innerHTML="Koszt zamówienia wynosi: 0 zł";
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

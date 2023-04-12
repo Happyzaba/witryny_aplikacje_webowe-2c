@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styl6.css"> 
+        <meta charset="UTF-8">
+        <title>Style w JavaScript</title>
+    </head>
+    <body>
+        <div id="lewy">
+            <h1>Konfigurator stylu</h1>
+            <p>Podaj kolor tła</p><br>
+            <button id="I" onclick="ChangeToIndigo()">Indigo</button>
+            <button id="S" onclick="ChangeToSteelBlue()">SteelBlue</button>
+            <button id="O" onclick="ChangeToOlive()">Olive</button>
+            <p>Podaj kolor czcionki</p><br>
+
+            <select onchange="ChangeFont()" id="list">
+                <option value="white">White</option>
+                <option value="tan">Tan</option>
+                <option value="bisque">Bisque</option>
+                <option value="plum">Plum</option>
+            </select>
+            
+            <p>Podaj rozmiar czcionki w procentach, np 200%</p><br>
+            <input type="text" id="font" onchange="ChangeSize()" value="100%">
+            <p>Czy rysunek ma mieć ramkę?</p>
+            <input type="checkbox" id="boxIcon" onchange="ChangeBorder()" checked>Rysuj ramkę
+            <p>Jaki jest type punktora listy?</p>
+            <input type="radio" checked onchange="Radio('dysk')" name="jan">dysk<br>
+            <input type="radio" onchange="Radio('kwadrat')" name="jan">kwadrat<br>
+            <input type="radio" onchange="Radio('okrąg')" name="jan">okrąg
+        </div>
+
+        <div id="prawy">
+            <section id="elementyPrawe">
+            <img src="gibraltar.jpg" alt="półwysep Gibraltar" id="image">
+            <ul id="list2"> 
+                <li>element 1</li>
+                <li>element 2</li>
+                <li>element 3</li>
+            </ul>
+        </section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+
+        <footer id="stopka">
+            Autor:00000000000
+        </footer>
+
+        <script>
+            function ChangeToIndigo(){
+                document.getElementById("prawy").style.backgroundColor = "indigo";
+            }   
+            function ChangeToSteelBlue(){
+                document.getElementById("prawy").style.backgroundColor = "steelblue";  
+            }
+            function ChangeToOlive(){
+                document.getElementById("prawy").style.backgroundColor = "olive";  
+            }
+            function ChangeFont(){
+                let f = document.getElementById('list').value;
+                document.getElementById("prawy").style.color = f;
+            }
+            function ChangeSize(){
+                let s = document.getElementById('font').value;
+                document.getElementById("prawy").style.fontSize = s;
+            }
+            function ChangeBorder(){
+                if(document.getElementById("boxIcon").checked)
+                {
+                    document.getElementById("image").style.border = '1px solid white';
+                }
+                else
+                {
+                    document.getElementById("image").style.border = 'none';
+                }
+            }
+            function Radio(r){
+                let rp = document.getElementById("list2");
+                if(r == "dysk")
+                {
+                    rp.style.listStyle = 'disc';
+                }
+                if(r == "kwadrat")
+                {
+                    rp.style.listStyle = 'square';
+                }
+                if(r == "okrąg")
+                {
+                    rp.style.listStyle = 'circle'
+                }
+            }
+        </script>
+    </body>
+</html>

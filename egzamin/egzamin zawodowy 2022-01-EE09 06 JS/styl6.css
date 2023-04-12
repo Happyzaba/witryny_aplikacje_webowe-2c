@@ -1,0 +1,43 @@
+body{
+    font-family: Georgia;
+    clear: both;
+}
+#lewy{
+    background-color: maroon;
+    color: white;
+    height: 600px;
+    width: 30%;
+    float: left;
+    overflow: auto;
+}
+#prawy{
+    background-color: maroon;
+    color: white;
+    height: 600px;
+    width: 70%;
+    float: left;
+}
+#stopka{
+    background-color: dimgrey;
+    color: white;
+}
+#elementyPrawe{
+    display: flex;
+    flex-direction: reverse;
+}
+p{
+    padding: 10px;
+}
+img{
+    padding: 10px;
+    border: 1px solid white;
+}
+#I{
+    background-color: indigo;
+}
+#S{
+    background-color: steelblue;
+}
+#O{
+    background-color: olive;
+}

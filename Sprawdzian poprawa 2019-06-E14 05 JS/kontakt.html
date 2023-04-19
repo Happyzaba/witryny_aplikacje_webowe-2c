@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <link rel="stylesheet" href="styl.css"> 
+        <link rel="icon" href="logo.png">
+        <title>Usługi informatyczne</title>
+    </head>
+    <body>
+        <div id="kontener">
+            <div id="logo">
+                <img src="logo.png" alt="logo firmy">
+            </div>
+            <div id="menu">
+                <a href="index.html">O nas</a>
+                <a href="uslugi.html">Usługi</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div> 
+        </div>
+        <header id="baner">
+            <img src="baner1.png">
+        </header>
+        <div id="glowny">
+            <hr>
+            <h2>Kontakt</h2>
+                <table>
+                    <tr>
+                    <td>Imię:</td>
+                    <td><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Nazwisko:</td>
+                        <td><input type="text" id="surname"></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input type="text" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Usługa:</td>
+                        <td><textarea></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="radio" name="option">Zapoznałam/em się z regulaminem</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button>Resetuj:</button>
+                            <button onclick="Formularz()">Prześlij</button>
+                        </td>
+                    </tr>
+                </table>
+                <p id="wynik"></p>
+            <hr>
+        </div>
+        <footer>
+            <p>Autor strony:00000000000</p>
+        </footer>
+        <script>
+            function Formularz(){
+                n = document.getElementById("name").value;
+                s = document.getElementById("surname").value;
+                e = document.getElementById("email").value;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+body{
+    background-color: #EEEEEE;
+    clear: both;
+}
+#kontener{
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+#logo{
+    background-color: #C0C0C0;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    float: left;
+}
+#menu{
+    background-color: #C0C0C0;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+    float: right;
+}
+footer{
+    background-color: #C0C0C0;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+#baner{
+    background-color: #DDDDDD;
+    height: 200px;
+    clear: both;
+}
+#glowny{
+    margin: 50px;
+}
+a{
+    color: #555555;
+    margin: 50px;
+    font-size: 200%;
+    text-decoration: none;
+}
+hr{
+    color: #C0C0C0;
+    width: 70%;
+    height: 2px;
+}
+table{
+    text-align: left;
+}

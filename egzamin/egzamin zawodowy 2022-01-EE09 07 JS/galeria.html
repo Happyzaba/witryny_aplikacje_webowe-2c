@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styl7.css"> 
+        <meta charset="UTF-8">
+        <title>Galeria</title>
+    </head>
+    <body>
+     <header id="baner">
+        <h2>Galeria miejsc ciekawych</h2>
+     </header>
+     <div id="glowny">
+        <img src="lanzarotte.jpg" alt="galeria" id="main">
+     </div>
+     <div id="lewy">
+        <h3>Przeglądaj zdjęcia</h3>
+        <img src="lanzarotte.jpg" alt="lanzarotte" onclick="changeImage('lanzarotte.jpg')">
+        <img src="pekin.jpg" alt="pekin.jpg" onclick="changeImage('pekin.jpg')">
+        <img src="serengeti.jpg" alt="serengeti" onclick="changeImage('serengeti.jpg')">
+        <img src="wenecja.jpg" alt="wenecja" onclick="changeImage('wenecja.jpg')">
+        <img src="tajlandia.jpg" alt="tajlandia" onclick="changeImage('tajlandia.jpg')">
+     </div>
+     <div id="prawy">
+        <h3>Obrazy w naszej galerii</h3>
+        <table>
+            <tr>
+                <td>Europa</td>
+                <td>Azja</td>
+                <td>Afryka</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <p>Polub nas <img src="icon-off.png" onclick="changeIcon(this)"></p>
+        <a href="https://pixbay.com" target="_blank">Odkryj więcej zdjęć</a>
+    </div>
+     <footer id="stopka">
+        Autor:00000000000
+     </footer>
+     <script>
+        const srctable = ["icon-off.png", "icon-on.png"];
+        var i = 0; 
+        function changeIcon(image){
+            image.src = srctable[i = ++i % srctable.length];
+        }
+        function changeImage(src){
+            document.getElementById("main").src = src;
+        }
+     </script>
+    </body>
+</html>
